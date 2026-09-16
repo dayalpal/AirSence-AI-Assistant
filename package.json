@@ -1,0 +1,13 @@
+{
+  "name": "airsense-mern",
+  "version": "1.0.0",
+  "description": "AirSense — MERN Stack AI Air Quality Assistant",
+  "private": true,
+  "scripts": {
+    "setup": "node setup.js",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix client"
+  }
+}

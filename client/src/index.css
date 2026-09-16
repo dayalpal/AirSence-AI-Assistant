@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #080d17;
+  --surface: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+  --accent: #3b82f6;
+  --accent2: #6366f1;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: #f0f4ff;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+
+/* Glass card */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa, #818cf8, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated orb background */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatOrb 20s ease-in-out infinite;
+}
+.orb-1 { width: 600px; height: 600px; background: #3b82f6; top: -200px; left: -150px; animation-duration: 16s; }
+.orb-2 { width: 500px; height: 500px; background: #6366f1; bottom: -100px; right: -100px; animation-duration: 22s; animation-delay: -8s; }
+.orb-3 { width: 350px; height: 350px; background: #22c55e; top: 45%; left: 45%; animation-duration: 28s; animation-delay: -14s; }
+
+@keyframes floatOrb {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33%      { transform: translate(40px,-50px) scale(1.06); }
+  66%      { transform: translate(-30px,30px) scale(0.96); }
+}
+
+/* Typing dots */
+.typing-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(240,244,255,0.5);
+  animation: typingBounce 1.4s ease-in-out infinite;
+  display: inline-block;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%,80%,100% { transform: translateY(0); opacity: 0.4; }
+  40%          { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Gauge animation */
+.gauge-fill { transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1); }
+
+/* AQI badge colors */
+.badge-good         { background: rgba(34,197,94,0.15);  color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+.badge-moderate     { background: rgba(234,179,8,0.15);  color: #fbbf24; border: 1px solid rgba(234,179,8,0.3); }
+.badge-sensitive    { background: rgba(249,115,22,0.15); color: #fb923c; border: 1px solid rgba(249,115,22,0.3); }
+.badge-unhealthy    { background: rgba(239,68,68,0.15);  color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+.badge-veryunhealthy{ background: rgba(168,85,247,0.15); color: #c084fc; border: 1px solid rgba(168,85,247,0.3); }
+.badge-hazardous    { background: rgba(185,28,28,0.25);  color: #fca5a5; border: 1px solid rgba(185,28,28,0.4); }
+
+/* Nav active */
+.nav-active {
+  background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(99,102,241,0.2));
+  border: 1px solid rgba(99,102,241,0.3) !important;
+  color: #f0f4ff !important;
+}
+
+/* Prose in chat bubbles */
+.prose-chat ul { list-style: disc; padding-left: 1.25rem; margin-top: 0.4rem; }
+.prose-chat li { margin-bottom: 0.25rem; }
+.prose-chat strong { color: #f0f4ff; }
+.prose-chat h3, .prose-chat h4 { color: #93c5fd; font-weight: 600; margin: 0.5rem 0 0.25rem; }
